@@ -1,0 +1,28 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="container">
+        <div class="info">
+        </div>
+    </div>
+    <div class="form">
+        <h2 style="font-size: 24px;">DieAndRetry</h2>
+        <div class="thumbnail"><img src="http://i.imgur.com/ZCQGy2u.png"/></div>
+
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        {{ form_widget(form.email, {'attr' : {'class' : 'champ', 'placeholder' : 'email'}}) }}
+        {{ form_widget(form.username, {'attr' : {'class' : 'champ', 'placeholder' : 'username'}}) }}
+        {{ form_widget(form.plainPassword.first, {'attr' : {'class' : 'champ', 'placeholder' : 'password'}}) }}
+        {{ form_widget(form.plainPassword.second, {'attr' : {'class' : 'champ', 'placeholder' : 'confirm password'}}) }}
+        <div>
+            <input class="bouton" style="margin-bottom:150px;"type="submit" value="Register" />
+        </div>
+        {{ form_end(form) }}
+
+        <span>Made with <i class="fa fa-heart"></i> by Formora</span>
+    </div>
+{% endblock fos_user_content %}
+
+

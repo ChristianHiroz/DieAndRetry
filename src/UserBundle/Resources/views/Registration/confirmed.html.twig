@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="1; URL={{ path('index') }}">
+</head>
+<body>
+{% block fos_user_content %}
+    Bienvenue {{ user.username }} ! Redirection....
+{% endblock fos_user_content %}
+</body>
+</html>

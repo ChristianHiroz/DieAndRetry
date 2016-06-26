@@ -1,0 +1,12 @@
+services:
+    # ...
+    admin.party:
+        class: GuildBundle\Admin\PartyAdmin
+        arguments: [~, GuildBundle\Entity\Party, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Groupes, group: DieAndRetry }
+    admin.user:
+        class: GuildBundle\Admin\UserAdmin
+        arguments: [~, UserBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: DieAndRetry }

@@ -1,0 +1,92 @@
+
+<div class="fichePerso">
+        {% if user.job is defined %}
+            {% if user.job == "Sorceress" %}
+                <img src="{{ asset('images/sorc.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Warrior" %}
+                <img src="{{ asset('images/war.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Maewa" %}
+                <img src="{{ asset('images/maewa.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Musa" %}
+                <img src="{{ asset('images/musa.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Ranger" %}
+                <img src="{{ asset('images/ranger.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Tamer" %}
+                <img src="{{ asset('images/tamer.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Valkyrie" %}
+                <img src="{{ asset('images/valk.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Witch" %}
+                <img src="{{ asset('images/witch.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Wizard" %}
+                <img src="{{ asset('images/wizard.png') }}" class="beforeNavPhoto"/>
+            {% elseif user.job == "Berseker" %}
+                <img src="{{ asset('images/zerk.png') }}" class="beforeNavPhoto"/>
+            {% endif %}
+        {% endif %}
+        <p>
+            {% if user.nom %}
+                {{ user.nom }}
+            {% else %}
+                Famille : N/A
+            {% endif %}
+            {% if user.prenom %}
+                {{ user.prenom }}
+            {% else %}
+                Pseudo : N/A
+            {% endif %}
+        </p>
+        <p>
+            {% if user.job %}
+                {{ user.job }}
+            {% else %}
+                Classe : N/A
+            {% endif %}
+        </p>
+        <p>
+            {% if user.ap %}
+                AP :{{ user.ap }}
+            {% else %}
+                AP : N/A
+            {% endif %}
+            {% if user.dp %}
+                DP :{{ user.dp }}
+            {% else %}
+                DP : N/A
+            {% endif %}
+        </p>
+        <p>
+            {% if user.hp %}
+                HP :{{ user.hp }}
+            {% else %}
+                HP : N/A
+            {% endif %}
+            {% if user.mp %}
+                MP :{{ user.mp }}
+            {% else %}
+                MP : N/A
+            {% endif %}
+        </p>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"  data-backdrop="false" >Modifier</button>
+    <div class="modal fade" style="margin:40px auto auto 20%;" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modification fiche perso</h4>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(edit, {'method': 'post', 'action': path('fos_user_profile_edit'), 'attr': {'class': ''}}) }}
+                    {{ form_widget(edit.nom, {'attr' : {'class' : 'champ', 'placeholder' : 'famille'}}) }}
+                    {{ form_widget(edit.prenom, {'attr' : {'class' : 'champ', 'placeholder' : 'pseudo'}}) }}
+                    {{ form_widget(edit.job, {'attr' : {'class' : 'champ', 'placeholder' : 'classe'}}) }}
+                    {{ form_widget(edit.level, {'attr' : {'class' : 'champ', 'placeholder' : 'level'}}) }}
+                    {{ form_widget(edit.AP, {'attr' : {'class' : 'champ', 'placeholder' : 'ap'}}) }}
+                    {{ form_widget(edit.DP, {'attr' : {'class' : 'champ', 'placeholder' : 'dp'}}) }}
+                    {{ form_widget(edit.HP, {'attr' : {'class' : 'champ', 'placeholder' : 'hp'}}) }}
+                    {{ form_widget(edit.MP, {'attr' : {'class' : 'champ', 'placeholder' : 'mp'}}) }}
+                    {{ form_end(edit) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
